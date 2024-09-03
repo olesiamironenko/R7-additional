@@ -15,3 +15,16 @@
   </p>
 
 </div>
+
+<h2>Orders:</h2>
+
+
+  <ul>
+    <% @orders.each do |order| %>
+      <li>
+        Order ID: <%= order.id %>, 
+        Product name: <%= order.product_name %>,
+        Product count: <%= order.product_count %>
+      </li>
+    <% end %>
+  </ul>
