@@ -1,14 +1,39 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Customers</h1>
+<table>
+  <thead>
+  <tr>
+    <th><%= 'Customers' %></th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
 
-<div id="customers">
-  <% @customers.each do |customer| %>
-    <%= customer.full_name %>
-    <p>
-      <%= link_to "Show this customer", customer %>
-    </p>
-  <% end %>
-</div>
+  <tbody>
+      <tr>
+        <td><%= 'Customer Name' %></td>
+        <td><%= 'Orders Count' %></td>
+        <td><%= 'Show Customer' %></td>
+        <td><%= 'Edit Customer' %></td>
+        <td><%= 'Delete Customer' %></td>
+      </tr>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.full_name %></td>
+        <td><%= customer.orders.count %></td>
+        <td><%= link_to 'Show', customer %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><%= button_to "Destroy", customer, method: :delete, data: { turbo_confirm: "Are you sure?"} %></td>
+      </tr>
+    <% end %>
+      <tr>
+        <td><%= link_to "New customer", new_customer_path %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+      </tr>  
+  </tbody>
+</table>
 
-<%= link_to "New customer", new_customer_path %>
+
