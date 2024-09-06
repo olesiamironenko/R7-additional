@@ -13,7 +13,24 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
 
- .my_alert {
-    color: red;
-  }
+:root {
+  --bs-body-bg: #f8effb;
+}
+
+.my_alert {
+  color: red;
+}
+
+.banner-background {
+  background-image: url('istockphoto-926538892-1024x1024.jpg');
+  background-size: cover;
+  background-position-y: 50%;
+  font-family: 'PixelifySans-VariableFont_wght'; 
+}
+ 
+@font-face {
+  font-family: 'PixelifySans-VariableFont_wght';
+  src: url('PixelifySans-VariableFont_wght.ttf');
+}
