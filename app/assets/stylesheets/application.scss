@@ -16,7 +16,7 @@
  @import "bootstrap";
 
 :root {
-  --bs-body-bg: #f8effb;
+  --bs-body-bg: #f2e0f8;
 }
 
 .my_alert {
@@ -29,7 +29,37 @@
   background-position-y: 50%;
   font-family: 'PixelifySans-VariableFont_wght'; 
 }
- 
+
+.btn-primary {
+  background-color: violet;
+  border-color: violet;
+  margin: 0.2%;
+}
+
+.btn-primary:hover {
+  background-color: rgb(240, 61, 240);
+  border-color: violet;
+}
+
+.btn-primary:focus {
+  background-color: rgb(240, 61, 240);
+  border-color: violet;
+}
+
+.btn-primary:active {
+  background-color: rgb(240, 61, 240);
+  border-color: violet;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.link-to-text-color {
+  color: white;
+}
+
 @font-face {
   font-family: 'PixelifySans-VariableFont_wght';
   src: url('PixelifySans-VariableFont_wght.ttf');

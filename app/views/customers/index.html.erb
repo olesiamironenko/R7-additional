@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<table>
+<table class="table table-striped table-hover">
   <thead>
   <tr>
     <th><%= 'Customers' %></th>
@@ -20,13 +20,21 @@
       <tr>
         <td><%= customer.full_name %></td>
         <td><%= customer.orders.count %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= button_to "Destroy", customer, method: :delete, data: { turbo_confirm: "Are you sure?"} %></td>
+        <td>
+          <%= link_to 'Show', customer, class: "btn btn-primary" %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_customer_path(customer), class: "btn btn-primary" %>
+        </td>
+        <td>
+          <%= button_to "Delete", customer, method: :delete, data: { turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
+        </td>
       </tr>
     <% end %>
       <tr>
-        <td><%= link_to "New customer", new_customer_path %></td>
+        <td>
+          <%= link_to "New customer", new_customer_path, class: "btn btn-primary" %>
+        </td>
         <td><%=  %></td>
         <td><%=  %></td>
         <td><%=  %></td>
