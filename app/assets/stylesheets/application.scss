@@ -60,7 +60,20 @@ a {
   color: white;
 }
 
+.card-header {
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.button_to {
+  display: inline;
+}
+
 @font-face {
   font-family: 'PixelifySans-VariableFont_wght';
   src: url('PixelifySans-VariableFont_wght.ttf');
+}
+
+#card-footer {
+  display: inline;
 }
