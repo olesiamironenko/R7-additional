@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     def create
         @order = Order.new(order_params)
         if @order.save
-            flash.notice = "The order record was created successfully."
+            flash[:notice] = "The order record was created successfully."
             redirect_to @order
         else
             render :new, status: :unprocessable_entity
@@ -34,9 +34,10 @@ class OrdersController < ApplicationController
     # PATCH/PUT /orders/1 or /orders/1.json
     def update
         if @order.update(order_params)
-            flash.notice = "The order record was updated successfully."
+            flash[:notice] = "The order record was updated successfully."
             redirect_to @order
         else
+            flash[:alert] = "The order record cannot be updated."
             render :edit, status: :unprocessable_entity
         end
     end
@@ -63,7 +64,7 @@ class OrdersController < ApplicationController
 
     def catch_not_found(e)
       Rails.logger.debug("We had a not found exception.")
-      flash.alert = e.to_s
+      flas[:error] = e.to_s
       redirect_to orders_path
     end
 
