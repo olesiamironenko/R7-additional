@@ -42,12 +42,13 @@
           <%= link_to 'Show', order, class: "btn btn-primary" %>
         </td>
         <td>
-          <%= link_to 'Edit', edit_order_path(order), class: "btn btn-primary" %>
+          <%= link_to 'Edit', edit_order_path(order, customer_id: customer.id), class: "btn btn-primary" %>
         </td>
         <td>
-          <%= button_to "Delete", order, method: :delete, data: { turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal-<%= customer.id%>">Delete customer</button>
         </td>
       </tr>
+      <% render "deleteModal", customer: customer %>
     <% end %>
       <tr>
         <td>
