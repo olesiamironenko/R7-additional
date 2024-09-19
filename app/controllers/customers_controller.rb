@@ -68,7 +68,7 @@ class CustomersController < ApplicationController
       @customer.orders.destroy_all
     end
     @customer.destroy
-    flash.notice = "The customer record and all related order records were successfully deleted."
+    flash[:notice] = "The customer record and all related order records were successfully deleted."
     redirect_to customers_url
   end
 

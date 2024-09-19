@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
     def destroy
         @order.destroy
             respond_to do |format|
-            format.html { redirect_to orders_url, notice: "Order was successfully destroyed." }
+            format.html { redirect_to orders_url, notice: "Order was successfully deleted." }
             format.json { head :no_content }
         end
     end
@@ -64,7 +64,7 @@ class OrdersController < ApplicationController
 
     def catch_not_found(e)
       Rails.logger.debug("We had a not found exception.")
-      flas[:error] = e.to_s
+      flash[:error] = e.to_s
       redirect_to orders_path
     end
 
