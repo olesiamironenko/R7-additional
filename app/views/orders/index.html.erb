@@ -1,0 +1,25 @@
+<h1>Orders</h1>
+
+<div id="orders" class="container-fluid row">
+  
+    <% @orders.each do |order| %>
+      <div class="col-sm">
+        <div id="card" class="card border border-2 border-success p-1 mt-3" style="width: 18rem;">
+          <div class="card-header">
+            <%= order.product_name %>
+          </div>
+          <div class="card-body">
+            <%= order.customer.full_name + " is buying " + order.product_count.to_s %>
+          </div>
+          <div id="card-footer" class="card-footer">
+            <%= link_to "Show this order", order, class: "btn btn-primary" %><br>
+            <%= link_to "Edit", edit_order_path(order), class: "btn btn-primary inline-element" %> |
+            <%= button_to "Delete", order, method: :delete, class: "btn btn-primary inline-button" %>
+          </div>
+        </div>
+       </div>
+    <% end %>
+   
+</div>
+
+<%= link_to "New order", new_order_path, class: "btn btn-primary" %>

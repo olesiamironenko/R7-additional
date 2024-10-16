@@ -1,0 +1,48 @@
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th><%= 'Customers' %></th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= 'Customer Icon' %></td>
+        <td><%= 'Customer Name' %></td>
+        <td><%= 'Orders Count' %></td>
+        <td><%= 'Show Customer' %></td>
+        <td><%= 'Edit Customer' %></td>
+        <td><%= 'Delete Customer' %></td>
+      </tr>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= icon('fa-solid', 'user') %></td>
+        <td><%= customer.full_name %></td>
+        <td><%= customer.orders.count %></td>
+        <td>
+          <%= link_to 'Show', customer, class: "btn btn-primary" %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_customer_path(customer), class: "btn btn-primary" %>
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal-<%= customer.id %>">Delete customer</button>
+        </td>
+      </tr>
+      <% render "deleteModal", customer: customer %>
+    <% end %>
+      <tr>
+        <td>
+          <%= link_to "New customer", new_customer_path, class: "btn btn-primary" %>
+        </td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+      </tr>  
+  </tbody>
+</table>
+
+

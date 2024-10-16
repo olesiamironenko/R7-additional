@@ -1,0 +1,9 @@
+<%= render @customer %>
+<br>
+<div>
+  <%= link_to "Edit this customer", edit_customer_path(@customer), class: "btn btn-primary" %> |
+  <%= link_to "Back to customers", customers_path, class: "btn btn-primary" %>
+
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="<%= 'deleteModal-#{customer.id}' %>">Delete customer</button>
+</div>
+<% render "deleteModal", customer: @customer.id %>

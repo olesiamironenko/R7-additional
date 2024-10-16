@@ -1,0 +1,63 @@
+<div id="<%= dom_id customer %>">
+  <p>
+    <strong>Full name:</strong>
+    <%= customer.full_name %>
+  </p>
+
+  <p>
+    <strong>Phone:</strong>
+    <%= customer.phone %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= customer.email %>
+  </p>
+
+</div>
+
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th><%= @customer.full_name + ' orders' %></th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= 'Order ID' %></td>
+        <td><%= 'Product Name' %></td>
+        <td><%= 'Product Count' %></td>
+        <td><%= 'Show order' %></td>
+        <td><%= 'Edit order' %></td>
+        <td><%= 'Delete order' %></td>
+      </tr>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.product_name %></td>
+        <td><%= order.product_count %></td>
+        <td>
+          <%= link_to 'Show', order, class: "btn btn-primary" %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_order_path(order, customer_id: customer.id), class: "btn btn-primary" %>
+        </td>
+        <td>
+          <%= button_to "Delete", order, method: :delete, class: "btn btn-primary inline-button" %>
+        </td>
+      </tr>
+    <% end %>
+      <tr>
+        <td>
+          <%= link_to 'New Order', new_order_path(customer_id: @customer.id), class: "btn btn-primary" %>
+        </td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+      </tr>
+  </tbody>
+</table>
